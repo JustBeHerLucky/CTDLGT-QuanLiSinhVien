@@ -37,3 +37,4 @@ void InMonHoc(MH* Mon);
 MH* NhapThongTinMonHoc(DSMH dsmh);
 void SuaMonHoc(DSMH& dsmh);
 void XoaMonHoc(DSMH& dsmh);
+int LaySoTinChi(DSMH dsmh, string maMH);

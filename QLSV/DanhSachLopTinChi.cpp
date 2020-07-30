@@ -450,6 +450,47 @@ void NhapDiemChoCacSinhVien(TREE &dsltc, DSSV dssv, string nienKhoa, int hocKi, 
 	}
 }
 
+void InDiemChoCacSinhVien(TREE& dsltc, DSSV dssv, string nienKhoa, int hocKi, int nhom, string maMH)
+{
+	if (dsltc != NULL) {
+		if (dsltc->nienKhoa.compare(nienKhoa) == 0 && dsltc->hocKy == hocKi && dsltc->nhom == nhom && dsltc->maMH.compare(maMH) == 0) {
+			cout << "\t\t\t\t\t\t\t\tBANG DIEM MON HOC " << dsltc->maMH << endl;
+			cout << "\t\t\t\t\t\t\tNien khoa: " << nienKhoa << "\tHoc ky: " << hocKi << "\tNhom: " << nhom << endl;
+			int i = 0;
+			for (DK* k = dsltc->dsDangki.pHead; k != NULL; k = k->pNext) {
+				cout << "STT: " << ++i;
+				InSinhVienTheoMSSV(dssv, k->MSSV); 
+				cout <<"\tDiem: "<< k->diem << endl;
+			}
+		}
+		InDiemChoCacSinhVien(dsltc->pLeft, dssv, nienKhoa, hocKi, nhom, maMH);
+		InDiemChoCacSinhVien(dsltc->pRight, dssv, nienKhoa, hocKi, nhom, maMH);
+	}
+}
+
+double TinhDiemTB1SV(TREE dsltc,DSMH dsmh, string MSSV)
+{
+	int diem = 0;
+	int tinchi = 0;
+	TinhDiemVaTinChi(dsltc, dsmh, MSSV, diem, tinchi);
+	if (tinchi == 0)return 0;
+	return (double)diem/tinchi;
+}
+
+void TinhDiemVaTinChi(TREE dsltc,DSMH dsmh, string MSSV, int& diem, int& tinchi) {
+	if (dsltc != NULL) {
+		for (DK* k = dsltc->dsDangki.pHead; k != NULL; k = k->pNext) {
+			if (k->MSSV.compare(MSSV) == 0) {
+				diem = diem + k->diem;
+				tinchi = tinchi + LaySoTinChi(dsmh, dsltc->maMH);
+			}
+		}
+		TinhDiemVaTinChi(dsltc->pLeft, dsmh, MSSV, diem, tinchi);
+		TinhDiemVaTinChi(dsltc->pRight, dsmh, MSSV, diem, tinchi);
+	}
+	else return;
+}
+
 void InDanhSachTheoNhom(TREE dsltc, DSSV dssv, int nhom)
 {
 	

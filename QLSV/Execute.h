@@ -12,3 +12,5 @@ void HieuChinhDanhSachLopTinChi(DSLTC& dsltc, DSMH dsmh);
 int LuaChonCapNhatSinhVien(string maLop);
 void CapNhatSinhVien(DSSV& l);
 void NhapDiem(DSLTC& dsltc, DSSV dssv, DSMH dsmh);
+void InBangDiem(DSLTC dsltc, DSSV dssv, DSMH dsmh);
+void InDiemTrungBinh(DSLTC dsltc, DSSV dssv, DSMH dsmh);

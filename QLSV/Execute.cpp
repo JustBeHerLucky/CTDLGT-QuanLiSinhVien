@@ -11,6 +11,8 @@ int Menu()
 	cout << "\t6.In danh sach mon hoc\n";
 	cout << "\t7.Dang ky lop tin chi\n";
 	cout << "\t8.Nhap diem\n";
+	cout << "\t9.In bang diem mon hoc cua mot lop tin chi\n";
+	cout << "\t10.In bang diem trung binh theo lop\n";
 	cout << "\t0.Thoat\n";
 	int luachon;
 	cout << "\tLua chon:";
@@ -339,6 +341,47 @@ void NhapDiem(DSLTC& dsltc, DSSV dssv, DSMH dsmh) {
 	NhapDiemChoCacSinhVien(dsltc.DS, dssv, nienKhoa, hocKi, nhom, maMH);
 }
 
+void InBangDiem(DSLTC dsltc, DSSV dssv, DSMH dsmh) {
+	cout << "\n\tNhap nien khoa: ";
+	string nienKhoa;
+	cin.ignore();
+	getline(cin, nienKhoa);
+
+	cout << "\tNhap hoc ky: ";
+	int hocKi; cin >> hocKi;
+
+	cout << "\tNhap nhom: ";
+	int nhom; cin >> nhom;
+
+	cout << "\tNhap ma mon hoc: ";
+	string maMH;
+	cin.ignore();
+	getline(cin, maMH);
+	while (!MaMHTonTai(dsmh, maMH)) {
+		cout << "*****Ma mon hoc khong ton tai! Nhap lai: ";
+		getline(cin, maMH);
+	}
+
+	InDiemChoCacSinhVien(dsltc.DS, dssv, nienKhoa, hocKi, nhom, maMH);
+	system("pause");
+}
+
+void InDiemTrungBinh(DSLTC dsltc, DSSV dssv, DSMH dsmh) {
+	cout << "\tNhap ma lop: "; 
+	string maLop;
+	cin.ignore();
+	getline(cin, maLop);
+	int i = 0;
+	for (SV* k = dssv.pHead; k != NULL; k = k->pNext) {
+		if (k->maLop.compare(maLop) == 0) {
+			cout << "STT: " << ++i;
+			InSinhVienTheoMSSV(dssv, k->maSV);
+			cout << "\tDiem TB: " << TinhDiemTB1SV(dsltc.DS, dsmh, k->maSV) << endl;
+		}
+	}
+	system("pause");
+}
+
 void Execute(DSLTC& dsltc, DSSV& dssv, DSMH& dsmh) {
 	while (true) {
 		switch (Menu())
@@ -385,6 +428,16 @@ void Execute(DSLTC& dsltc, DSSV& dssv, DSMH& dsmh) {
 		case 8: {
 			system("cls");
 			NhapDiem(dsltc, dssv, dsmh);
+			break;
+		}
+		case 9: {
+			system("cls");
+			InBangDiem(dsltc, dssv, dsmh);
+			break;
+		}
+		case 10: {
+			system("cls");
+			InDiemTrungBinh(dsltc, dssv, dsmh);
 			break;
 		}
 		case 0: {

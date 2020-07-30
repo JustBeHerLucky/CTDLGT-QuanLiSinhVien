@@ -82,6 +82,14 @@ void XoaMonHoc(DSMH& dsmh)
 	}
 }
 
+int LaySoTinChi(DSMH dsmh, string maMH)
+{
+	for (int i = 0; i < dsmh.slMonHoc; i++) {
+		if (dsmh.ds[i]->maMH.compare(maMH) == 0) return dsmh.ds[i]->sTCTH+dsmh.ds[i]->sTCLT;
+	}
+	return 0;
+}
+
 void SaveDSMH(DSMH dsmh) {
 	ofstream fileout;
 	fileout.open("MONHOC.txt", ios_base::out);

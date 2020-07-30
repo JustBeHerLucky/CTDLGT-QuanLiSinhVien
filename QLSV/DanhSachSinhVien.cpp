@@ -335,7 +335,7 @@ bool SVThuocLopA(SV* sv, string maLop)
 
 void InSinhVien(SV* sv)
 {
-	cout << "\n\tLop: " << sv->maLop;
+	cout << "\tLop: " << sv->maLop;
 	cout << "\tMSSV: " << sv->maSV;
 	cout << "\tHo: " << sv->ho;
 	cout << "\tTen: " << sv->ten;

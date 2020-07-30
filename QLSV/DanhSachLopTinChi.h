@@ -72,3 +72,6 @@ void InDanhSachTheoNhom(TREE dsltc, DSSV dssv, int nhom);
 void InDanhSachTheoHocKy(TREE dsltc, DSSV dssv, int hocKy);
 void InDanhSachTheoMaMon(TREE dsltc, DSSV dssv, string maMon);
 void NhapDiemChoCacSinhVien(TREE &dsltc,DSSV dssv, string nienKhoa, int hocKi, int nhom, string maMH);
+void InDiemChoCacSinhVien(TREE& dsltc, DSSV dssv, string nienKhoa, int hocKi, int nhom, string maMH);
+double TinhDiemTB1SV(TREE dsltc,DSMH dsmh, string MSSV);
+void TinhDiemVaTinChi(TREE dsltc, DSMH dsmh, string MSSV, int& diem, int& tinchi);
