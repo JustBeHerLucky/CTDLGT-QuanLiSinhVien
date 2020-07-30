@@ -1,3 +1,13 @@
-﻿  DanhSachLopTinChi.cpp
+﻿  DanhSachDangKi.cpp
+  DanhSachLopTinChi.cpp
 C:\Users\nqt01\source\repos\QLSV\QLSV\DanhSachLopTinChi.cpp(484,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  DanhSachMonHoc.cpp
+  DanhSachSinhVien.cpp
+  Execute.cpp
+  Execute.h
+  QLSV.cpp
+  Something.cpp
+C:\Users\nqt01\source\repos\QLSV\QLSV\Something.cpp(8,51): warning C4244: 'argument': conversion from 'unsigned __int64' to 'double', possible loss of data
+  Generating Code...
+x64\Debug\\\Execute.obj : warning LNK4042: object specified more than once; extras ignored
   QLSV.vcxproj -> C:\Users\nqt01\source\repos\QLSV\x64\Debug\QLSV.exe

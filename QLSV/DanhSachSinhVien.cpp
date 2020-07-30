@@ -83,13 +83,9 @@ bool ThemSinhVienVaoLop(DSSV& dssv, string maLop)
 	}
 
 	SV* p = NhapThongTinSinhVien(maLop, maSV);
-	cout << "Check ne";
-	system("pause");
 	if (p == NULL) return false;
 	if (LopDaTonTai(dssv, maLop)) ThemSinhVienVaoLopCu(dssv, maLop, p);
 	else ThemSinhVien(dssv, p);
-		
-	
 	return true;
 }
 
@@ -338,10 +334,7 @@ void InSinhVien(SV* sv)
 	cout << "\tLop: " << sv->maLop;
 	cout << "\tMSSV: " << sv->maSV;
 	cout << "\tHo: " << sv->ho;
-	cout << "\tTen: " << sv->ten;
-	cout << "\tPhai: " << sv->phai;
-	cout << "\tSoDT: " << sv->sdt;
-	cout << "\tNam nhap hoc: " << sv->namNhapHoc;
+	cout << "\tTen: " << sv->ten;	
 }
 
 void InSinhVienTheoMSSV(DSSV l, string MSSV)
